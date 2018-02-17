@@ -16,8 +16,8 @@ router.get('/', async (req, res, next) => {
         const nombre = req.query.nombre;
         const venta = req.query.venta;
         const precio = req.query.precio;
-        const p_max = req.query.p_max;
-        const p_min = req.query.p_min;
+        //const p_max = req.query.p_max;
+        //const p_min = req.query.p_min;
         const foto = req.query.foto;
         const tag = req.query.tag;
         const skip = parseInt(req.query.skip);
@@ -41,6 +41,13 @@ router.get('/', async (req, res, next) => {
         if (typeof precio !== 'undefined') {
             filtro.precio = precio;
           }
+
+        if (typeof p_max !== 'undefined') {
+            filtro.precio = {lte p_max};
+        }
+        if (typeof p_min !== 'undefined') {
+            filtro.precio = {lte p_max}
+        }
 
         if (typeof foto !== 'undefined') {
           filtro.foto = foto;
