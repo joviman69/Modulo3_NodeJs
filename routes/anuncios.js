@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Anuncio = require ('../../models/Anuncio.js');
+const Anuncio = require ('../models/Anuncio.js');
 
 
 // controlador GET
@@ -69,7 +69,7 @@ router.get('/', async (req, res, next) => {
         
         const docs = await Anuncio.listar(filtro, skip, limit, sort, fields); 
         
-        res.json({ success: true, result: docs });  
+        res.render('front', {title: 'Front' });  
       } catch(err) {
         next(err);
         return;

@@ -37,6 +37,9 @@ app.use('/users', users); // ruta /users
 /** Middlewares de apiv1 */
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
+/** Middlewares de la web */
+app.use('/anuncios', require('./routes/anuncios'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

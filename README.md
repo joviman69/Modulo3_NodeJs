@@ -1,36 +1,46 @@
-# Api Nodepop
-### Features
+# API Nodepop
 
-El esquema del modelo anuncios es:
+El esquema del modelo Anuncios es:
 
-    nombre: String, 
-    venta: Boolean,
-    precio: Number,
-    foto: String,
-    tag: [String]
+    nombre: String  // Contiene el nombre del artículo
+    venta: Boolean  // true indica que el articulo está en venta, mientras que false indica que está en compra
+    precio: Number  // precio del artículo
+    foto: String    // ruta del archivo de imagen del artículo
+    tag: [String]   // etiquetas de categorías del anuncio (work, lifestyle, motor y mobile)
      
 
-La respuesta de la api es un JSON compuesto de 
+TODAS las respuestas de la api son a través un JSON compuesto de 
+
 {
-"success": true, > Un boleano que nos informa del exito de la consulta
-"result": Resultado > El resultado obtenido
+"success": true, // > Un boleano que nos informa del exito de la consulta
+"result": Resultado // > El resultado obtenido
 }
 
+### Features
+Acceso a las características del API
+http://servidor:puerto/apiv1/anuncios/
+en esta práctica localhost:3000
 
-/apiv1/anuncios/
+Si no especificamos ninguna query a la API, ésta lista todos los anuncios en la base de datos como resultado.
 
-sin especificar una query lista todos los anuncios en la base de datos
+http://localhost:3000/apiv1/anuncios/contar
+muestra el total de anuncios en la base de datos como resultado.
 
-fields > muestra campos
-varios campos separados por espacios
+http://localhost:3000/apiv1/anuncios/tags
+muestra todas las tags de los anuncios como resultado.
 
-/contar > muestra el total de anuncios en la base de datos
+http://servidor:puerto/apiv1/anuncios?fields=<campo1 campo2> 
+muestra solo los campos indicados en el resultado. Además del _id del documento.
+Es posible solicitar varios campos separados por espacios
 
 filtros
-    nombre=string (o parte del nombre)
-    venta=boolean > true muestra los anuncios de venta, mientras que false muestra los de compra
-    precio=[n] | [min-max] | [min-] | [-max]
-    tag=string > filtra por anuncios que contienen dicha tag
+
+http://servidor:puerto/apiv1/anuncios?<campo>=<valor>
+
+    nombre=string                                   // (o subcadena inicial del nombre) 
+    venta=boolean                                   // true muestra los anuncios de venta, false muestra los de compra
+    precio=[n] | [min-max] | [min-] | [-max]        // valor exacto o un rango de precios
+    tag=string                                      // filtra por anuncios que contienen dicha tag
 
 sort=venta precio 
 varios campos separados por espacios
