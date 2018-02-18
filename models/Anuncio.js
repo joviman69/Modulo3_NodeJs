@@ -23,8 +23,7 @@ anuncioSchema.statics.listar = function(filtro, skip, limit, sort, fields, callb
     query.sort(sort);
     query.select(fields);
 
-// Ejecución de la query
-    return query.exec(callback);
+    return query.exec(callback);  // Ejecución de la query
   };
 // Creacción del modelo Anuncio
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);

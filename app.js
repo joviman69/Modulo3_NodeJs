@@ -56,9 +56,9 @@ app.use(function(err, req, res, next) {
 
   res.status(err.status || 500);
 
-  // Si es una petición de API, response con JSON
+  // Si es una petición de API, el error lo responde con JSON
   if (isAPI(req)) {
-    res.json({ succes: false, error: err.message });
+    res.json({ success: false, error: err.message });
     return;
   }
 
