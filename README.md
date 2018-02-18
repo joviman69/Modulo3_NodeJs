@@ -38,3 +38,4 @@ varios campos separados por espacios
 skip=n > ignora los x primeros resultados
 
 limit=n > limita la salida a n resultados
+
