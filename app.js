@@ -14,6 +14,10 @@ require('./lib/connectMongoose');
 // Carga del modelo Anuncio para mongoose
 require('./models/Anuncio');
 
+// Reseteo de la base de datos
+require('./lib/load');
+
+
 var app = express();
 
 // view engine setup

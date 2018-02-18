@@ -117,7 +117,7 @@ router.get('/load', async (req, res, next) => {
 
         await Anuncio.insertMany(anuncios);
 
-        console.log('anuncios.JSON importada a la base de datos');
+        console.log('anuncios.json importada a la base de datos');
         res.render('front', {resultados: 'Collection anuncios importada' });  
         
   } catch(err) {

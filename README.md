@@ -1,19 +1,8 @@
 # Nodepop App (Práctica del módulo 3)
 NodeJs, Express y MongoDB
 
-### Features especiales
+### NOTA: Cada vez que se reinicia la App se recarga la base de datos de ejemplo "predefinida"
 
-Antes de empezar a revisar la práctica es necesario cargar la coleccion anuncios en la base de datos
-A traves de la siguiente peticion GET a la app:
-~~~
-http://servidor:puerto/anuncios/load
-~~~
-
-Es posible borrar la colección anuncios 
-A traves de la siguiente peticion GET a la app:
-~~~
-http://servidor:puerto/anuncios/clear
-~~~
 
 ### Features de la API
 
@@ -101,3 +90,17 @@ admite indicar varios campos separados por espacios
 **skip=n**  *ignora los x primeros resultados*
 
 **limit=n**  *limita la salida a n resultados*
+
+### Features especiales
+
+Es posible recargar la coleccion anuncios "predefinida" en la base de datos
+A traves de la siguiente peticion GET a la app:
+~~~
+http://servidor:puerto/anuncios/load
+~~~
+
+Es posible borrar la colección anuncios 
+A traves de la siguiente peticion GET a la app:
+~~~
+http://servidor:puerto/anuncios/clear
+~~~
