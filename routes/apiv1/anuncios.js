@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
         const nombre = req.query.nombre;
         const venta = req.query.venta;
         const precio = req.query.precio
-        const foto = req.query.foto;
+        //const foto = req.query.foto;
         const tag = req.query.tag;
         const skip = parseInt(req.query.skip);
         const limit = parseInt(req.query.limit);
@@ -29,7 +29,7 @@ router.get('/', async (req, res, next) => {
         const filtro = {};
     
         if (typeof nombre !== 'undefined') { 
-          //filtro.nombre = nombre; 
+          
           filtro.nombre = new RegExp('^' + nombre, "i");
         }
     
@@ -55,10 +55,10 @@ router.get('/', async (req, res, next) => {
             } else { filtro.precio = precio };
         }
 
-        if (typeof foto !== 'undefined') {
+/*      if (typeof foto !== 'undefined') {
           filtro.foto = foto;
         }
-
+*/
         if (typeof tag !== 'undefined') {
 
             console.log(tag);
@@ -70,6 +70,7 @@ router.get('/', async (req, res, next) => {
         const docs = await Anuncio.listar(filtro, skip, limit, sort, fields); 
         
         res.json({ success: true, result: docs });  
+        //res.json({ docs });  
       } catch(err) {
         next(err);
         return;

@@ -1,0 +1,178 @@
+[
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile"
+],
+"nombre": "Smartphone",
+"venta": true,
+"precio": 300,
+"foto": "./public/images/foto1.jpg"
+},
+{
+"tag": [
+"lifestyle"
+],
+"nombre": "Guantes de boxeo",
+"venta": false,
+"precio": 90,
+"foto": "./public/images/foto2.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Silla",
+"venta": false,
+"precio": 190,
+"foto": "./public/images/foto3.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Mesa",
+"venta": false,
+"precio": 2190,
+"foto": "./public/images/foto4.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+},
+{
+"tag": [
+"work",
+"lifestyle",
+"mobile",
+"motor"
+],
+"nombre": "Despertador",
+"venta": true,
+"precio": 30,
+"foto": "./public/images/foto5.jpg"
+}
+]                                                                                                                                           

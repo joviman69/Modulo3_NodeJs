@@ -1,5 +1,5 @@
 'use strict';
-
+const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 
@@ -69,7 +69,7 @@ router.get('/', async (req, res, next) => {
         
         const docs = await Anuncio.listar(filtro, skip, limit, sort, fields); 
         
-        res.render('front', {title: 'Front' });  
+        res.render('front', {query: filtro, resultados: docs });  
       } catch(err) {
         next(err);
         return;
@@ -81,14 +81,53 @@ router.get('/', async (req, res, next) => {
 
 router.get('/contar', async (req, res, next) => {   
     try {
-        const total = await Anuncio.find().count().exec();    
-        res.json({ success: true, result: total });  
+        const total = await Anuncio.find().count().exec();   
+        res.render('front', {resultados: total });  
+        
+  } catch(err) {
+        next(err);
+        return;
+  }  
+});
+
+
+// controlador GET
+// drop a colección anuncios
+
+router.get('/clear', async (req, res, next) => {   
+    try {
+        await Anuncio.collection.drop();    
+        res.render('front', {resultados: 'Collection anuncios borrada' });  
 
   } catch(err) {
         next(err);
         return;
   }  
 });
+
+
+
+// controlador GET
+// cargar la colección anuncios desde anuncios.json
+
+router.get('/load', async (req, res, next) => {   
+    try {
+        //const anuncios = JSON.parse(fs.readFileSync(__dirname + 'lib/anuncios.json', 'utf-8'));
+        const anuncios = JSON.parse(fs.readFileSync('public/anuncios.json', 'utf-8'));
+
+        await Anuncio.insertMany(anuncios);
+
+        console.log('anuncios.JSON importada a la base de datos');
+        res.render('front', {resultados: 'Collection anuncios importada' });  
+        
+  } catch(err) {
+        next(err);
+        return;
+  }  
+});
+
+
+
 
 // controlador GET
 // Mostrar tags 
