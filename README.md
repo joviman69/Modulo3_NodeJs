@@ -1,4 +1,21 @@
-# API Nodepop
+# Nodepop App (Práctica del módulo 3)
+NodeJs, Express y MongoDB
+
+### Features especiales
+
+Antes de empezar a revisar la práctica es necesario cargar la coleccion anuncios en la base de datos
+A traves de la siguiente peticion GET a la app:
+~~~
+http://servidor:puerto/anuncios/load
+~~~
+
+Es posible borrar la colección anuncios 
+A traves de la siguiente peticion GET a la app:
+~~~
+http://servidor:puerto/anuncios/clear
+~~~
+
+### Features de la API
 
 El esquema del modelo Anuncios es:
 
@@ -9,50 +26,78 @@ El esquema del modelo Anuncios es:
     tag: [String]   // etiquetas de categorías del anuncio (work, lifestyle, motor y mobile)
      
 
-TODAS las respuestas de la api son a través un JSON compuesto de: 
-
+ TODAS las respuestas de la api son a través un JSON compuesto de: 
+~~~
 {
 "success": true, // > Un boleano que nos informa del exito de la consulta
 "result": Resultado // > El resultado obtenido
-}
-
-### Features
+}  
+~~~
 Acceso a las características del API
 
 http://servidor:puerto/apiv1/anuncios/
-
 en esta práctica localhost:3000
 
 Si no especificamos ninguna query a la API, ésta lista todos los anuncios en la base de datos como resultado.
 
+ - Mostrar el total de anuncios en la base de datos como resultado.
+~~~
 http://localhost:3000/apiv1/anuncios/contar
+~~~
 
-muestra el total de anuncios en la base de datos como resultado.
-
-
+ - Mostrar todas las tags de los anuncios como resultado.
+~~~
 http://localhost:3000/apiv1/anuncios/tags
+~~~
 
-muestra todas las tags de los anuncios como resultado.
+- Mostrar el anuncio con una determinada _id.
+~~~
+http://localhost:3000/apiv1/anuncios/<id>
+ejemplo: http://localhost:3000/apiv1/anuncios/5a89c6390774ae0f17e0b61b
+~~~
 
+- Insertar anuncios. (metodo POST)
+~~~
+http://localhost:3000/apiv1/anuncios/
+
+Pasandole el documento
+{nombre: 'Raqueta', venta: true, precio: 300, foto: 'foto10', tag: ['lifestyle']}
+~~~
+
+- Borrar anuncios con una determinada _id. (metodo DELETE)
+~~~
+http://localhost:3000/apiv1/anuncios/<id>
+ejemplo: http://localhost:3000/apiv1/anuncios/5a89c6390774ae0f17e0b61b
+~~~
+
+- Actualizar anuncios con una determinada _id. (metodo PUT)
+~~~
+http://localhost:3000/apiv1/anuncios/<id>
+ejemplo: http://localhost:3000/apiv1/anuncios/5a89c6390774ae0f17e0b61b
+~~~
+
+
+ - Mostrar solo los campos indicados en el resultado, además del _id del documento.
+Admite indicar varios campos separados por espacios
+
+~~~
 http://servidor:puerto/apiv1/anuncios?fields=<campo1 campo2> 
+~~~
+##### Filtros
 
-muestra solo los campos indicados en el resultado. Además del _id del documento.
-Es posible solicitar varios campos separados por espacios
-
-filtros
-
+~~~
 http://servidor:puerto/apiv1/anuncios?<campo>=<valor>
+~~~
 
     nombre=string                                   // (o subcadena inicial del nombre) 
     venta=boolean                                   // true = anuncios enta, false = anuncios compra
     precio=[n] | [min-max] | [min-] | [-max]        // valor exacto o un rango de precios
     tag=string                                      // filtra por anuncios que contienen dicha tag
 
-sort=venta precio 
+**sort**=*campo1 campo2*
 
-varios campos separados por espacios
+admite indicar varios campos separados por espacios
 
-skip=n > ignora los x primeros resultados
+**skip=n**  *ignora los x primeros resultados*
 
-limit=n > limita la salida a n resultados
-
+**limit=n**  *limita la salida a n resultados*

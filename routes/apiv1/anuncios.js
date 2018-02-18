@@ -16,7 +16,6 @@ router.get('/', async (req, res, next) => {
         const nombre = req.query.nombre;
         const venta = req.query.venta;
         const precio = req.query.precio
-        //const foto = req.query.foto;
         const tag = req.query.tag;
         const skip = parseInt(req.query.skip);
         const limit = parseInt(req.query.limit);
@@ -55,10 +54,6 @@ router.get('/', async (req, res, next) => {
             } else { filtro.precio = precio };
         }
 
-/*      if (typeof foto !== 'undefined') {
-          filtro.foto = foto;
-        }
-*/
         if (typeof tag !== 'undefined') {
 
             console.log(tag);
