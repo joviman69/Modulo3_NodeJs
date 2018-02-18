@@ -15,9 +15,7 @@ router.get('/', async (req, res, next) => {
         // Extracción a variables de los parámetros de entrada
         const nombre = req.query.nombre;
         const venta = req.query.venta;
-        const precio = req.query.precio;
-        //const p_max = req.query.p_max;
-        //const p_min = req.query.p_min;
+        const precio = req.query.precio
         const foto = req.query.foto;
         const tag = req.query.tag;
         const skip = parseInt(req.query.skip);
@@ -26,7 +24,8 @@ router.get('/', async (req, res, next) => {
         //const fields = req.query.fields +" -_id"; // Eliminamos el _id de la respuesta
         const fields = req.query.fields; 
 
-       console.log(req.query)
+       console.log(req.query);
+       console.log(precio);
     
         const filtro = {};
     
@@ -39,14 +38,21 @@ router.get('/', async (req, res, next) => {
         }
 
         if (typeof precio !== 'undefined') {
-            filtro.precio = precio;
-          }
-
-        if (typeof p_max !== 'undefined') {
-            filtro.precio = {lte p_max};
-        }
-        if (typeof p_min !== 'undefined') {
-            filtro.precio = {lte p_max}
+            if (precio.includes("-")) {
+                const p_min = precio.split("-")[0];
+                const p_max = precio.split("-")[1];
+                console.log("p_min :" + p_min + " p_max: " + p_max );
+                filtro.precio = {$gte: p_min , $lte: p_max };
+                
+                if (p_min === "" ) {
+                    console.log("pmin vacio");
+                    filtro.precio = { $lte: p_max };
+                }
+                if (p_max === "" ) {
+                    console.log("pmax vacio");
+                    filtro.precio = { $gte: p_min };
+                }
+            } else { filtro.precio = precio };
         }
 
         if (typeof foto !== 'undefined') {
